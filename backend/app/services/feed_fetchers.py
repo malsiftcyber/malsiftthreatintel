@@ -13,7 +13,25 @@ import re
 from app.core.config import settings
 from app.models.threat_intelligence import ThreatIndicator, ThreatSource
 from app.schemas.threat_intelligence import (
-    ThreatIndicatorCreate, IndicatorType, ThreatLevel, SourceType
+from .premium_feed_fetchers import (
+    CrowdStrikeFeedFetcher,
+    MandiantFeedFetcher,
+    RecordedFutureFeedFetcher,
+    NordstellarFeedFetcher,
+    AnomaliFeedFetcher,
+    FBIInfraGuardFeedFetcher
+)
+from .opensource_feed_fetchers import (
+    AbuseIPDBFeedFetcher,
+    BinaryDefenseFeedFetcher,
+    BotvrijFeedFetcher,
+    BruteForceBlockerFeedFetcher,
+    EmergingThreatsFeedFetcher,
+    OpenPhishFeedFetcher,
+    URLhausFeedFetcher,
+    MalwareBazaarFeedFetcher,
+    FeodoTrackerFeedFetcher
+)    ThreatIndicatorCreate, IndicatorType, ThreatLevel, SourceType
 )
 
 
@@ -456,6 +474,32 @@ class DarkWebFeedFetcher(BaseFeedFetcher):
 def create_feed_fetcher(source: ThreatSource) -> BaseFeedFetcher:
     """Create appropriate feed fetcher based on source type"""
     fetchers = {
+        # Premium Threat Intelligence
+        "crowdstrike": CrowdStrikeFeedFetcher,
+        "mandiant": MandiantFeedFetcher,
+        "recordedfuture": RecordedFutureFeedFetcher,
+        "nordstellar": NordstellarFeedFetcher,
+        "anomali": AnomaliFeedFetcher,
+        "fbi_infraguard": FBIInfraGuardFeedFetcher,
+        
+        # Open Source Threat Intelligence
+        "abuseipdb": AbuseIPDBFeedFetcher,
+        "binarydefense": BinaryDefenseFeedFetcher,
+        "botvrij": BotvrijFeedFetcher,
+        "bruteforceblocker": BruteForceBlockerFeedFetcher,
+        "emergingthreats": EmergingThreatsFeedFetcher,
+        "openphish": OpenPhishFeedFetcher,
+        "malwarebazaar": MalwareBazaarFeedFetcher,
+        "feodotracker": FeodoTrackerFeedFetcher,
+        
+        # Original Sources
+        "cisa": CISAFeedFetcher,
+        "otx": AlienVaultOTXFeedFetcher,
+        "virustotal": VirusTotalFeedFetcher,
+        "threatfox": ThreatFoxFeedFetcher,
+        "phishtank": PhishTankFeedFetcher,
+        "urlhaus": URLhausFeedFetcher,
+        "darkweb": DarkWebFeedFetcher
         'cisa': CISAFeedFetcher,
         'otx': AlienVaultOTXFeedFetcher,
         'virustotal': VirusTotalFeedFetcher,

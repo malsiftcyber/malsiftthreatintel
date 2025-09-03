@@ -62,6 +62,56 @@ Malsift is a comprehensive cyber threat intelligence aggregation platform design
 - **Grafana Dashboards**: Visual analytics and reporting
 - **Docker Deployment**: Containerized deployment with Docker Compose
 
+
+## 📊 Supported Threat Intelligence Sources
+
+### **Premium Threat Intelligence Sources**
+
+| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
+|------------|----------|-------------------|----------------|-----------------|
+| CrowdStrike Falcon Intelligence | Commercial | OAuth2 | 2 req/min | Advanced threat intelligence with malware family analysis |
+| Mandiant Threat Intelligence | Commercial | API Key | 5 req/min | Comprehensive threat research and analysis |
+| Recorded Future | Commercial | API Key | 3 req/min | Real-time threat intelligence and risk scoring |
+| Nordstellar | Commercial | API Key | 2 req/min | Specialized threat intelligence feeds |
+| Anomali ThreatStream | Commercial | API Key | 5 req/min | Threat intelligence platform with advanced analytics |
+| FBI InfraGuard | Government | API Key | 5 req/min | Government threat intelligence and alerts |
+
+### **Government Sources**
+
+| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
+|------------|----------|-------------------|----------------|-----------------|
+| CISA Known Exploited Vulnerabilities | Government | None | Unlimited | Official government vulnerability database |
+| FBI Cyber Division | Government | API Key | 5 req/min | Federal law enforcement threat intelligence |
+| DHS Automated Indicator Sharing | Government | API Key | 10 req/min | Department of Homeland Security feeds |
+
+### **Open Source Sources**
+
+| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
+|------------|----------|-------------------|----------------|-----------------|
+| AlienVault OTX | Open Source | API Key | 10 req/min | Community-driven threat intelligence platform |
+| MISP | Open Source | API Key | Unlimited | Malware Information Sharing Platform |
+| OpenPhish | Open Source | None | Unlimited | Real-time phishing URL feeds |
+| PhishTank | Open Source | None | Unlimited | Community-driven phishing database |
+| URLhaus (Abuse.ch) | Open Source | None | Unlimited | Malicious URL tracking and analysis |
+| AbuseIPDB | Open Source | API Key | 3 req/min | IP reputation and abuse reporting |
+| Binary Defense Artillery | Open Source | None | Unlimited | Threat intelligence feed |
+| Botvrij.eu | Open Source | None | Unlimited | Open source threat intelligence feeds |
+| BruteForceBlocker | Open Source | None | Unlimited | SSH brute force attack tracking |
+| Emerging Threats | Open Source | None | Unlimited | Compromised IP and domain feeds |
+| MalwareBazaar | Open Source | None | Unlimited | Malware sample repository and analysis |
+| Feodo Tracker | Open Source | None | Unlimited | Botnet command and control tracking |
+
+### **Commercial Sources**
+
+| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
+|------------|----------|-------------------|----------------|-----------------|
+| VirusTotal | Commercial | API Key | 4 req/min | File and URL reputation analysis |
+| ThreatFox | Open Source | API Key | 5 req/min | Malware threat intelligence |
+| IBM X-Force Exchange | Commercial | API Key | 10 req/min | Enterprise threat intelligence platform |
+
+### **Custom Feed Support**
+Add any threat intelligence source with custom parsers and integration modules.
+
 ## 🏗️ Architecture
 
 ```

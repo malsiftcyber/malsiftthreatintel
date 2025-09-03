@@ -53,6 +53,37 @@ class Settings(BaseSettings):
     # PhishTank
     PHISHTANK_BASE_URL: str = "http://data.phishtank.com/data"
     
+    # Premium Threat Intelligence APIs
+    CROWDSTRIKE_API_KEY: Optional[str] = None
+    CROWDSTRIKE_BASE_URL: str = "https://api.crowdstrike.com"
+    CROWDSTRIKE_CLIENT_ID: Optional[str] = None
+    CROWDSTRIKE_CLIENT_SECRET: Optional[str] = None
+    
+    MANDIANT_API_KEY: Optional[str] = None
+    MANDIANT_BASE_URL: str = "https://api.intel.mandiant.com"
+    
+    RECORDEDFUTURE_API_KEY: Optional[str] = None
+    RECORDEDFUTURE_BASE_URL: str = "https://api.recordedfuture.com/v2"
+    
+    NORDSTELLAR_API_KEY: Optional[str] = None
+    NORDSTELLAR_BASE_URL: str = "https://api.nordstellar.com"
+    
+    ANOMALI_API_KEY: Optional[str] = None
+    ANOMALI_BASE_URL: str = "https://api.threatstream.com"
+    
+    FBI_INFRAGUARD_API_KEY: Optional[str] = None
+    FBI_INFRAGUARD_BASE_URL: str = "https://api.infragard.org"
+    
+    # Open Source Threat Intelligence Sources
+    ABUSEIPDB_API_KEY: Optional[str] = None
+    ABUSEIPDB_BASE_URL: str = "https://api.abuseipdb.com/api/v2"
+    
+    BINARYDEFENSE_BANLIST_URL: str = "https://www.binarydefense.com/banlist.txt"
+    
+    BOTVRIJ_BASE_URL: str = "http://www.botvrij.eu/data"
+    
+    BRUTEFORCEBLOCKER_URL: str = "https://danger.rulez.sk/projects/bruteforceblocker/bl.php"
+    
     # URLhaus
     URLHAUS_BASE_URL: str = "https://urlhaus-api.abuse.ch/v1"
     
@@ -77,6 +108,14 @@ class Settings(BaseSettings):
     
     # Deduplication
     SIMILARITY_THRESHOLD: float = 0.8
+    
+    # Free Tier Limits
+    CROWDSTRIKE_FREE_LIMIT: int = 2  # requests per minute
+    MANDIANT_FREE_LIMIT: int = 5  # requests per minute
+    RECORDEDFUTURE_FREE_LIMIT: int = 3  # requests per minute
+    NORDSTELLAR_FREE_LIMIT: int = 2  # requests per minute
+    ANOMALI_FREE_LIMIT: int = 5  # requests per minute
+    ABUSEIPDB_FREE_LIMIT: int = 3  # requests per minute
     
     # Free Tier Limits
     VIRUSTOTAL_FREE_LIMIT: int = 4  # requests per minute
