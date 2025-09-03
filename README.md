@@ -1,12 +1,9 @@
 # Malsift - Cyber Threat Intelligence Aggregation Platform
 
 <div align="center">
-  <img src="logo-simple.svg" alt="Malsift Logo" width="400" />
+  <h1>🕵️‍♂️ <span style="color: #2a4a6a; font-family: Georgia, serif; font-weight: bold;">MALSIFT</span> 🕵️‍♂️</h1>
   <p><em>Cyber Threat Intelligence Aggregation Platform</em></p>
 </div>
-
-
-Malsift is a comprehensive cyber threat intelligence aggregation platform designed to collect, normalize, and manage threat indicators from multiple sources. Built for on-premise deployment with AWS migration capabilities, Malsift provides advanced deduplication, dark web monitoring, and flexible exclusion management.
 
 ## 🎨 Branding
 
