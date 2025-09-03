@@ -1,9 +1,5 @@
 # Malsift - Cyber Threat Intelligence Aggregation Platform
 
-<div align="center">
-  <h1>🕵️‍♂️ <span style="color: #2a4a6a; font-family: Georgia, serif; font-weight: bold;">MALSIFT</span> 🕵️‍♂️</h1>
-  <p><em>Cyber Threat Intelligence Aggregation Platform</em></p>
-</div>
 
 ## 🎨 Branding
 
