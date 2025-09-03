@@ -1,7 +1,7 @@
 # Malsift - Cyber Threat Intelligence Aggregation Platform
 
 <div align="center">
-  <h1>🕵️‍♂️ MALSIFT 🕵️‍♂️</h1>
+  <img src="logo-simple.svg" alt="Malsift Logo" width="400" />
   <p><em>Cyber Threat Intelligence Aggregation Platform</em></p>
 </div>
 
