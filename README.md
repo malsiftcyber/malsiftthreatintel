@@ -7,6 +7,21 @@
 
 Malsift is a comprehensive cyber threat intelligence aggregation platform designed to collect, normalize, and manage threat indicators from multiple sources. Built for on-premise deployment with AWS migration capabilities, Malsift provides advanced deduplication, dark web monitoring, and flexible exclusion management.
 
+## 🎨 Branding
+
+### Logo
+The Malsift logo features a distinctive design that represents the platform's mission:
+
+- **Hooded Figure**: Represents the mysterious and hidden nature of cyber threats
+- **Glowing Red Eyes**: Symbolizes constant vigilance and threat detection
+- **Network Structure**: The molecular/network symbol on the figure's chest represents the interconnected nature of threat intelligence and data analysis
+- **Dark Theme**: Reflects the cybersecurity domain and the need for stealth in threat hunting
+
+Multiple logo variants are available:
+- `logo.svg` - Full logo with text (200x80px)
+- `logo-text.svg` - Text-only version for smaller spaces (120x40px)
+- `favicon.svg` - Favicon version (32x32px)
+
 ## 🚀 Features
 
 ### **Multi-Source Intelligence Aggregation**
