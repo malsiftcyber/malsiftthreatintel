@@ -1,6 +1,6 @@
 <svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="300" height="100" fill="black"/>
+  <rect width="300" height="100" fill="white"/>
   
   <!-- Hooded Figure -->
   <g transform="translate(30, 20)">
