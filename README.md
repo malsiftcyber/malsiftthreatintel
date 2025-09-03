@@ -1,5 +1,9 @@
 # Malsift - Cyber Threat Intelligence Aggregation Platform
 
+<div align="center">
+  <img src="frontend/public/logo.svg" alt="Malsift Logo" width="400" />
+</div>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org)
