@@ -1,6 +1,5 @@
 # Malsift - Cyber Threat Intelligence Aggregation Platform
 
-
 ## 🎨 Branding
 
 ### Logo
@@ -18,394 +17,312 @@ Multiple logo variants are available:
 
 ## 🚀 Features
 
-### **Multi-Source Intelligence Aggregation**
+### Multi-Source Intelligence Aggregation
 - **Government Sources**: CISA Known Exploited Vulnerabilities, FBI Cyber Division feeds, DHS Automated Indicator Sharing
 - **Open Source Sources**: AlienVault OTX, MISP, OpenPhish, PhishTank, URLhaus (Abuse.ch)
 - **Commercial Sources**: VirusTotal, ThreatFox, IBM X-Force Exchange, Recorded Future, CrowdStrike Falcon (free tiers)
 - **Custom Feed Support**: Add any threat intelligence source with custom parsers
 
-### **Advanced Deduplication System**
+### 🔒 SSL Certificate Support
+- **Let's Encrypt Integration**: Free, automatic SSL certificate generation and renewal
+- **Custom SSL Certificates**: Support for certificates from any Certificate Authority
+- **Nginx Reverse Proxy**: SSL termination with security headers and rate limiting
+- **Automatic Renewal**: Cron jobs for certificate renewal (90-day expiration)
+- **Security Headers**: HSTS, CSP, X-Frame-Options, and other security enhancements
+- **HTTP/2 Support**: Modern protocol for improved performance
+
+### 🔐 Comprehensive Authentication System
+- **Internal Login System**: Username/password authentication with bcrypt hashing
+- **Azure AD Integration**: Enterprise SSO with OAuth2 and automatic user provisioning
+- **Multi-Factor Authentication**: TOTP support with Google/Microsoft Authenticator
+- **JWT Tokens**: Secure session management with access and refresh tokens
+- **Role-Based Access Control**: Granular permissions and user management
+- **Session Management**: Secure session handling with automatic logout
+- **Password Management**: Secure password reset and change functionality
+
+### Advanced Deduplication System
 - **Intelligent Normalization**: IP addresses, domains, URLs, hashes, emails
 - **Confidence Score Merging**: Automatically merges duplicate indicators with highest confidence
 - **Tag Consolidation**: Combines tags and metadata from multiple sources
 - **Duplicate Tracking**: Comprehensive reporting on duplicate detection and resolution
 
-### **Dark Web Monitoring**
+### Dark Web Monitoring
 - **Tor Integration**: Built-in Tor proxy support for dark web access
 - **Configurable Scraping**: Set custom intervals and source management
 - **Content Extraction**: Advanced parsing and indicator extraction from dark web content
 - **Source Management**: Add, configure, and monitor dark web sources
 
-### **Free Tier Optimization**
-- **Rate Limiting**: Configurable limits per source to stay within free tiers
-- **Throttling Mechanisms**: Intelligent request spacing and backoff
-- **Usage Tracking**: Monitor API usage and stay within limits
-- **Cost Management**: Optimize for free tier usage across all sources
+### Machine Learning & AI
+- **Threat Scoring**: ML-based threat level assessment and prioritization
+- **Anomaly Detection**: Identify unusual patterns and potential threats
+- **Feature Engineering**: Advanced feature extraction from threat data
+- **Model Management**: Train, update, and monitor ML models
 
-### **Indicator Exclusion System**
-- **Pattern Matching**: Support for exact, regex, and wildcard patterns
-- **Real-time Filtering**: Exclude indicators from API responses in real-time
-- **Bulk Management**: Import exclusions from CSV/JSON files
-- **Pattern Testing**: Test exclusion patterns against existing indicators
-- **Flexible Rules**: Exclude by indicator type, value patterns, or combinations
-
-### **Modern Web Interface**
+### Modern Web Interface
 - **React + TypeScript**: Modern, responsive frontend with Tailwind CSS
 - **Real-time Dashboard**: Live statistics and threat level distributions
 - **Advanced Filtering**: Search, filter, and sort indicators by multiple criteria
 - **Feed Management**: Visual interface for managing threat intelligence sources
-- **Job Monitoring**: Real-time status of background fetch operations
 
-### **RESTful API**
-- **FastAPI Backend**: High-performance API with automatic OpenAPI documentation
-- **Comprehensive Endpoints**: Full CRUD operations for all entities
-- **Filtering & Pagination**: Advanced query capabilities with pagination
-- **Rate Limiting**: Built-in API rate limiting and authentication
-- **WebSocket Support**: Real-time updates and notifications
+### Indicator Exclusion System
+- **Flexible Pattern Matching**: Exact, regex, and wildcard pattern support
+- **Bulk Import**: Import exclusion lists from CSV/JSON files
+- **Pattern Testing**: Test exclusion patterns before applying
+- **Audit Trail**: Track all exclusion changes and modifications
 
-### **Enterprise Features**
-- **PostgreSQL Database**: Robust, scalable data storage
-- **Redis Caching**: High-performance caching and job queue
-- **Celery Background Jobs**: Asynchronous processing for long-running tasks
-- **Prometheus Metrics**: Comprehensive monitoring and observability
-- **Grafana Dashboards**: Visual analytics and reporting
-- **Docker Deployment**: Containerized deployment with Docker Compose
+### Custom Feed Parsers
+- **Dynamic Parser Loading**: Load custom Python parsers at runtime
+- **Multiple Format Support**: JSON, CSV, XML, and custom formats
+- **Parser Management**: Upload, configure, and manage custom parsers
+- **Error Handling**: Robust error handling and validation
 
+## 🛠️ Technology Stack
 
-## 📊 Supported Threat Intelligence Sources
+### Backend
+- **FastAPI**: Modern Python web framework for APIs
+- **PostgreSQL**: Primary database with advanced querying
+- **Redis**: Caching and message queue for Celery
+- **SQLAlchemy**: ORM for database operations
+- **Alembic**: Database migrations
+- **Celery**: Background task processing
+- **Prometheus**: Metrics collection and monitoring
 
-### **Premium Threat Intelligence Sources**
+### Frontend
+- **React 18**: Modern UI framework with hooks
+- **TypeScript**: Type-safe JavaScript development
+- **Tailwind CSS**: Utility-first CSS framework
+- **React Query**: Data fetching and caching
+- **React Router**: Client-side routing
+- **Recharts**: Data visualization and charts
 
-| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
-|------------|----------|-------------------|----------------|-----------------|
-| CrowdStrike Falcon Intelligence | Commercial | OAuth2 | 2 req/min | Advanced threat intelligence with malware family analysis |
-| Mandiant Threat Intelligence | Commercial | API Key | 5 req/min | Comprehensive threat research and analysis |
-| Recorded Future | Commercial | API Key | 3 req/min | Real-time threat intelligence and risk scoring |
-| Nordstellar | Commercial | API Key | 2 req/min | Specialized threat intelligence feeds |
-| Anomali ThreatStream | Commercial | API Key | 5 req/min | Threat intelligence platform with advanced analytics |
-| FBI InfraGuard | Government | API Key | 5 req/min | Government threat intelligence and alerts |
+### Security & SSL
+- **Nginx**: Reverse proxy with SSL termination
+- **Let's Encrypt**: Free SSL certificate automation
+- **Certbot**: Certificate management and renewal
+- **Security Headers**: Comprehensive security hardening
+- **Rate Limiting**: Protection against abuse
 
-### **Government Sources**
+### Authentication
+- **JWT**: JSON Web Tokens for secure authentication
+- **bcrypt**: Secure password hashing
+- **pyotp**: TOTP-based multi-factor authentication
+- **Azure AD**: Enterprise SSO integration
+- **Session Management**: Secure session tracking
 
-| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
-|------------|----------|-------------------|----------------|-----------------|
-| CISA Known Exploited Vulnerabilities | Government | None | Unlimited | Official government vulnerability database |
-| FBI Cyber Division | Government | API Key | 5 req/min | Federal law enforcement threat intelligence |
-| DHS Automated Indicator Sharing | Government | API Key | 10 req/min | Department of Homeland Security feeds |
-
-### **Open Source Sources**
-
-| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
-|------------|----------|-------------------|----------------|-----------------|
-| AlienVault OTX | Open Source | API Key | 10 req/min | Community-driven threat intelligence platform |
-| MISP | Open Source | API Key | Unlimited | Malware Information Sharing Platform |
-| OpenPhish | Open Source | None | Unlimited | Real-time phishing URL feeds |
-| PhishTank | Open Source | None | Unlimited | Community-driven phishing database |
-| URLhaus (Abuse.ch) | Open Source | None | Unlimited | Malicious URL tracking and analysis |
-| AbuseIPDB | Open Source | API Key | 3 req/min | IP reputation and abuse reporting |
-| Binary Defense Artillery | Open Source | None | Unlimited | Threat intelligence feed |
-| Botvrij.eu | Open Source | None | Unlimited | Open source threat intelligence feeds |
-| BruteForceBlocker | Open Source | None | Unlimited | SSH brute force attack tracking |
-| Emerging Threats | Open Source | None | Unlimited | Compromised IP and domain feeds |
-| MalwareBazaar | Open Source | None | Unlimited | Malware sample repository and analysis |
-| Feodo Tracker | Open Source | None | Unlimited | Botnet command and control tracking |
-
-### **Commercial Sources**
-
-| **Source** | **Type** | **Authentication** | **Rate Limit** | **Description** |
-|------------|----------|-------------------|----------------|-----------------|
-| VirusTotal | Commercial | API Key | 4 req/min | File and URL reputation analysis |
-| ThreatFox | Open Source | API Key | 5 req/min | Malware threat intelligence |
-| IBM X-Force Exchange | Commercial | API Key | 10 req/min | Enterprise threat intelligence platform |
-
-### **Custom Feed Support**
-Add any threat intelligence source with custom parsers and integration modules.
-
-## 🏗️ Architecture
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   React Frontend│    │   FastAPI Backend│    │  PostgreSQL DB  │
-│   (TypeScript)  │◄──►│   (Python)      │◄──►│                 │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │   Redis Cache   │
-                       │   & Job Queue   │
-                       └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │  Celery Workers │
-                       │  (Background)   │
-                       └─────────────────┘
-```
-
-## 📋 Prerequisites
-
-- **Docker** (20.10+) and **Docker Compose** (2.0+)
-- **Git** for cloning the repository
-- **4GB RAM** minimum (8GB recommended)
-- **10GB disk space** for initial deployment
+### Monitoring & Observability
+- **Grafana**: Metrics visualization and dashboards
+- **Prometheus**: Time-series metrics database
+- **Loguru**: Structured logging
+- **Health Checks**: Application health monitoring
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
+### Prerequisites
+- Docker and Docker Compose
+- Domain name (for SSL setup)
+- At least 4GB RAM
 
-```bash
-git clone https://github.com/rebaker501/malsift.git
-cd malsift
-```
+### Installation
 
-### 2. Configure Environment
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rebaker501/malsift.git
+   cd malsift
+   ```
 
-```bash
-# Copy the example environment file
-cp backend/env.example backend/.env
+2. **Configure environment**
+   ```bash
+   cp backend/.env.example backend/.env
+   # Edit backend/.env with your settings
+   ```
 
-# Edit the environment file with your configuration
-nano backend/.env
-```
+3. **Start services**
+   ```bash
+   # Standard deployment
+   docker-compose up -d
+   
+   # SSL-enabled deployment
+   ./scripts/ssl-setup.sh -d your-domain.com -e your-email@domain.com
+   ```
 
-### 3. Start the Application
+4. **Initialize database**
+   ```bash
+   docker-compose exec backend alembic upgrade head
+   docker-compose exec backend python -m app.scripts.create_admin
+   ```
 
-```bash
-# Make the startup script executable
-chmod +x scripts/start.sh
+5. **Access the application**
+   - **Standard**: http://localhost:3000
+   - **SSL**: https://your-domain.com
 
-# Start all services
-./scripts/start.sh
-```
+## 🔐 Authentication Setup
 
-### 4. Access the Application
+### Default Admin Account
+After installation, use these default credentials:
+- **Username**: `admin`
+- **Password**: `admin123`
 
-- **Frontend**: http://localhost:3000
-- **API Documentation**: http://localhost:8000/docs
-- **API Health Check**: http://localhost:8000/health
-- **Grafana**: http://localhost:3001 (admin/admin)
-- **Prometheus**: http://localhost:9090
+**Important**: Change these credentials immediately after first login!
 
-## ⚙️ Configuration
+### Internal Authentication
+The system includes a complete internal authentication system:
+- User registration and management
+- Password hashing with bcrypt
+- JWT token-based sessions
+- Role-based access control
+
+### Azure AD Integration (Optional)
+1. **Create Azure AD App Registration**:
+   - Go to Azure Portal > App Registrations
+   - Create new registration
+   - Set redirect URI: `https://your-domain.com/auth/azure-ad/callback`
+
+2. **Configure Environment Variables**:
+   ```env
+   AZURE_AD_TENANT_ID=your-tenant-id
+   AZURE_AD_CLIENT_ID=your-client-id
+   AZURE_AD_CLIENT_SECRET=your-client-secret
+   AZURE_AD_REDIRECT_URI=https://your-domain.com/auth/azure-ad/callback
+   ```
+
+3. **Enable in Web Interface**:
+   - Go to Authentication settings
+   - Enable Azure AD integration
+   - Configure allowed domains
+
+### Multi-Factor Authentication (Optional)
+1. **Enable MFA for Your Account**:
+   - Go to your profile settings
+   - Enable Multi-Factor Authentication
+   - Scan QR code with Google/Microsoft Authenticator
+
+2. **Complete Setup**:
+   - Enter verification code from authenticator
+   - Save backup codes for recovery
+
+## 📚 Documentation
+
+- **[Installation Guide](docs/installation.md)**: Complete setup instructions
+- **[Quick Start Guide](docs/quick-start.md)**: Get up and running quickly
+- **[API Documentation](docs/api/overview.md)**: Comprehensive API reference
+- **[SSL Setup Guide](docs/deployment/ssl.md)**: SSL certificate configuration
+- **[Authentication Guide](docs/auth/overview.md)**: Login and MFA setup
+
+## 🔧 Configuration
 
 ### Environment Variables
 
 Key configuration options in `backend/.env`:
 
-```bash
-# Database Configuration
-DATABASE_URL=postgresql://threatintel:threatintel123@postgres:5432/cyber_threat_intel
-REDIS_URL=redis://redis:6379
+```env
+# Database
+DATABASE_URL=postgresql://user:password@localhost/malsift
 
-# API Configuration
-API_KEY=your-secret-api-key
-CORS_ORIGINS=["http://localhost:3000"]
+# Security
+SECRET_KEY=your-secret-key-here
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+REFRESH_TOKEN_EXPIRE_DAYS=7
 
-# Threat Intelligence Sources
-CISA_API_KEY=your-cisa-api-key
-OTX_API_KEY=your-otx-api-key
-VIRUSTOTAL_API_KEY=your-virustotal-api-key
+# SSL Configuration
+DOMAIN=your-domain.com
+SSL_TYPE=letsencrypt  # or custom
+
+# Azure AD (optional)
+AZURE_AD_TENANT_ID=your-tenant-id
+AZURE_AD_CLIENT_ID=your-client-id
+AZURE_AD_CLIENT_SECRET=your-client-secret
+AZURE_AD_REDIRECT_URI=https://your-domain.com/auth/azure-ad/callback
+
+# API Keys (optional)
+VIRUSTOTAL_API_KEY=your-vt-api-key
+ALIENVAULT_API_KEY=your-otx-api-key
 THREATFOX_API_KEY=your-threatfox-api-key
-
-# Rate Limiting
-OTX_FREE_LIMIT=10
-THREATFOX_FREE_LIMIT=5
-
-# Dark Web Configuration
-TOR_PROXY_URL=socks5://tor:9050
-DARK_WEB_ENABLED=true
 ```
 
-### Supported Threat Intelligence Sources
+### SSL Configuration
 
-| Source | Type | Free Tier | API Key Required |
-|--------|------|-----------|-------------------|
-| CISA | Government | Yes | No |
-| AlienVault OTX | Open Source | Yes | Yes |
-| VirusTotal | Commercial | Yes | Yes |
-| ThreatFox | Open Source | Yes | No |
-| PhishTank | Open Source | Yes | No |
-| URLhaus | Open Source | Yes | No |
-| MISP | Open Source | Yes | No |
+#### Let's Encrypt (Recommended)
+```bash
+./scripts/ssl-setup.sh -d your-domain.com -e your-email@domain.com
+```
 
-## 📊 API Usage
+#### Custom SSL Certificate
+```bash
+# Place certificates
+cp your-cert.crt nginx/ssl/cert.pem
+cp your-key.key nginx/ssl/key.pem
 
-### Authentication
+# Run setup
+./scripts/ssl-setup.sh -d your-domain.com -t custom
+```
+
+## 📊 API Authentication
+
+### JWT Token Authentication
+All API endpoints require authentication using JWT tokens:
 
 ```bash
-# Include API key in headers
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-     "http://localhost:8000/api/v1/indicators"
+# Login to get tokens
+curl -X POST http://localhost:8000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "admin", "password": "admin123"}'
+
+# Use access token in requests
+curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  http://localhost:8000/api/v1/indicators
 ```
 
-### Key Endpoints
+### Authentication Endpoints
 
-```bash
-# Get threat indicators
-GET /api/v1/indicators
-
-# Get indicators with filtering
-GET /api/v1/indicators?indicator_type=ip&threat_level=high
-
-# Create exclusion rule
-POST /api/v1/exclusions
-{
-  "indicator_type": "ip",
-  "value": "192.168.1.1",
-  "pattern_type": "exact",
-  "reason": "Internal network IP"
-}
-
-# Test exclusion pattern
-POST /api/v1/exclusions/test?pattern=192.168.*.*&pattern_type=wildcard
-
-# Fetch all feeds
-POST /api/v1/feeds/fetch-all
-
-# Get summary statistics
-GET /api/v1/indicators/summary/stats
-```
-
-### Exclusion Patterns
-
-```bash
-# Exact match
-{
-  "indicator_type": "ip",
-  "value": "192.168.1.1",
-  "pattern_type": "exact"
-}
-
-# Wildcard pattern
-{
-  "indicator_type": "domain",
-  "value": "*.example.com",
-  "pattern_type": "wildcard"
-}
-
-# Regular expression
-{
-  "indicator_type": "ip",
-  "value": "^192\\.168\\.1\\.\\d+$",
-  "pattern_type": "regex"
-}
-```
-
-## 🔧 Management Commands
-
-```bash
-# View logs
-docker-compose logs -f
-
-# Stop all services
-docker-compose down
-
-# Restart services
-docker-compose restart
-
-# Update and restart
-docker-compose pull && docker-compose up -d
-
-# Access database
-docker-compose exec postgres psql -U threatintel -d cyber_threat_intel
-
-# Run database migrations
-docker-compose exec backend alembic upgrade head
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/auth/login` | Internal login |
+| POST | `/api/v1/auth/refresh` | Refresh access token |
+| POST | `/api/v1/auth/logout` | Logout and invalidate token |
+| POST | `/api/v1/auth/register` | Register new user |
+| GET | `/api/v1/auth/me` | Get current user info |
+| POST | `/api/v1/auth/mfa/setup` | Setup MFA |
+| POST | `/api/v1/auth/mfa/verify` | Verify MFA code |
+| POST | `/api/v1/auth/azure-ad/login` | Azure AD login |
+| GET | `/api/v1/auth/azure-ad/login-url` | Get Azure AD login URL |
 
 ## 📈 Monitoring
 
-### Prometheus Metrics
-
-- **Indicator Counts**: Total, by type, by threat level
-- **Feed Performance**: Fetch duration, success rates, errors
-- **API Usage**: Request counts, response times, errors
-- **System Health**: Memory, CPU, disk usage
-
-### Grafana Dashboards
-
-Pre-configured dashboards for:
-- Threat Intelligence Overview
-- Feed Performance Metrics
-- API Usage Analytics
-- System Health Monitoring
-
-## 🔒 Security Features
-
-- **API Key Authentication**: Secure access to all endpoints
-- **CORS Protection**: Configurable cross-origin restrictions
-- **Rate Limiting**: Prevent API abuse
-- **Input Validation**: Comprehensive request validation
-- **SQL Injection Protection**: Parameterized queries
-- **XSS Protection**: Output encoding and sanitization
-
-## 🚀 Production Deployment
-
-### AWS Deployment
-
-1. **EC2 Setup**:
-   ```bash
-   # Launch EC2 instance with Docker
-   sudo yum update -y
-   sudo yum install -y docker
-   sudo systemctl start docker
-   sudo usermod -a -G docker ec2-user
-   ```
-
-2. **RDS Database**:
-   ```bash
-   # Create RDS PostgreSQL instance
-   # Update DATABASE_URL in .env
-   ```
-
-3. **ElastiCache Redis**:
-   ```bash
-   # Create ElastiCache Redis cluster
-   # Update REDIS_URL in .env
-   ```
-
-4. **Load Balancer**:
-   ```bash
-   # Configure ALB for frontend and API
-   # Set up SSL certificates
-   ```
-
-### Docker Swarm Deployment
-
+### Health Checks
 ```bash
-# Initialize swarm
-docker swarm init
+# API health
+curl http://localhost:8000/health
 
-# Deploy stack
-docker stack deploy -c docker-compose.yml malsift
+# SSL certificate status
+./scripts/renew-ssl.sh --dry-run
 ```
+
+### Metrics & Dashboards
+- **Grafana**: http://localhost:3001 (admin/admin)
+- **Prometheus**: http://localhost:9090
+- **Application Metrics**: Available via Prometheus endpoints
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## 📝 License
+### Development Setup
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests and documentation
+5. Submit a pull request
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-- **Documentation**: [API Docs](http://localhost:8000/docs)
-- **Issues**: [GitHub Issues](https://github.com/rebaker501/malsift/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rebaker501/malsift/discussions)
+- **Documentation**: [Comprehensive docs](https://rebaker501.github.io/malsift/)
+- **Issues**: Report bugs and feature requests on [GitHub](https://github.com/rebaker501/malsift/issues)
+- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/rebaker501/malsift/discussions)
 
-## 🙏 Acknowledgments
+## 🔄 Changelog
 
-- FastAPI for the excellent web framework
-- React and TypeScript for the frontend
-- PostgreSQL and Redis for data storage
-- All the threat intelligence providers for their APIs
-- The cybersecurity community for feedback and contributions
-
----
-
-**Malsift** - Empowering cybersecurity teams with comprehensive threat intelligence aggregation and management.
+See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes and updates.

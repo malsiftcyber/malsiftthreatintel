@@ -7,16 +7,17 @@ class Settings(BaseSettings):
     """Application settings"""
     
     # Application
-    APP_NAME: str = "Cyber Threat Intelligence Platform"
+    APP_NAME: str = "Malsift - Cyber Threat Intelligence Platform"
     VERSION: str = "1.0.0"
     DEBUG: bool = False
     
-    # Security
+    # Security & Authentication
     SECRET_KEY: str = "your-secret-key-change-in-production"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
     # Database
-    DATABASE_URL: str = "postgresql://user:password@localhost/cyber_threat_intel"
+    DATABASE_URL: str = "postgresql://user:password@localhost/malsift"
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379"
@@ -28,6 +29,12 @@ class Settings(BaseSettings):
     # API Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 60
     RATE_LIMIT_PER_HOUR: int = 1000
+    
+    # Azure AD Configuration
+    AZURE_AD_TENANT_ID: Optional[str] = None
+    AZURE_AD_CLIENT_ID: Optional[str] = None
+    AZURE_AD_CLIENT_SECRET: Optional[str] = None
+    AZURE_AD_REDIRECT_URI: Optional[str] = None
     
     # Threat Intelligence Sources
     # CISA

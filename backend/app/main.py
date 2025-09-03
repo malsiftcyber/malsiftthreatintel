@@ -10,12 +10,14 @@ from app.api.v1.api import api_router
 from app.core.database import engine, Base
 from app.services.metrics import setup_metrics
 
+# Import authentication models to ensure they're created
+from app.models.auth import User, Role, UserSession, MFAAttempt, AzureADConfig
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan events"""
     # Startup
-    logger.info("Starting Cyber Threat Intelligence Platform")
+    logger.info("Starting Malsift - Cyber Threat Intelligence Platform")
     
     # Create database tables
     Base.metadata.create_all(bind=engine)
@@ -27,13 +29,13 @@ async def lifespan(app: FastAPI):
     yield
     
     # Shutdown
-    logger.info("Shutting down Cyber Threat Intelligence Platform")
+    logger.info("Shutting down Malsift - Cyber Threat Intelligence Platform")
 
 
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application"""
     app = FastAPI(
-        title="Cyber Threat Intelligence Platform",
+        title="Malsift - Cyber Threat Intelligence Platform",
         description="A comprehensive platform for aggregating and managing cyber threat intelligence from multiple sources",
         version="1.0.0",
         docs_url="/docs",
@@ -62,13 +64,13 @@ def create_app() -> FastAPI:
     # Health check endpoint
     @app.get("/health")
     async def health_check():
-        return {"status": "healthy", "service": "cyber-threat-intel"}
+        return {"status": "healthy", "service": "malsift"}
     
     # Root endpoint
     @app.get("/")
     async def root():
         return {
-            "message": "Cyber Threat Intelligence Platform API",
+            "message": "Malsift - Cyber Threat Intelligence Platform API",
             "version": "1.0.0",
             "docs": "/docs",
             "health": "/health"
