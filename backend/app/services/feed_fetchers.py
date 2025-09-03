@@ -22,6 +22,8 @@ from .premium_feed_fetchers import (
     FBIInfraGuardFeedFetcher
 )
 from .opensource_feed_fetchers import (
+from .custom_feed_parsers import CustomFeedFetcher
+from .ml_threat_scoring import MLThreatScoring
     AbuseIPDBFeedFetcher,
     BinaryDefenseFeedFetcher,
     BotvrijFeedFetcher,
@@ -491,6 +493,9 @@ def create_feed_fetcher(source: ThreatSource) -> BaseFeedFetcher:
         "openphish": OpenPhishFeedFetcher,
         "malwarebazaar": MalwareBazaarFeedFetcher,
         "feodotracker": FeodoTrackerFeedFetcher,
+        
+        # Custom Feed Parsers
+        "custom": CustomFeedFetcher,
         
         # Original Sources
         "cisa": CISAFeedFetcher,
