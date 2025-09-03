@@ -23,6 +23,26 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
+            <Route index element={<Navigate to="/dashboard" replace />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="indicators" element={<Indicators />} />
+            <Route path="feeds" element={<Feeds />} />
+            <Route path="sources" element={<Sources />} />
+            <Route path="campaigns" element={<Campaigns />} />
+            <Route path="darkweb" element={<DarkWeb />} />
+            <Route path="jobs" element={<Jobs />} />
+            <Route path="exclusions" element={<Exclusions />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+  return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <Layout>

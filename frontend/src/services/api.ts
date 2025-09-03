@@ -76,6 +76,26 @@ export const endpoints = {
   exclusionsToggle: (id: number) => `/api/v1/exclusions/${id}/toggle`,
   exclusionsCheck: (type: string, value: string) => `/api/v1/exclusions/check/${type}/${value}`,
 
+  // Authentication
+  auth: "/auth",
+  authLogin: "/auth/login",
+  authMfaLogin: "/auth/mfa/login",
+  authMfaSetup: "/auth/mfa/setup",
+  authMfaVerify: "/auth/mfa/verify",
+  authMfaDisable: "/auth/mfa/disable",
+  authRefresh: "/auth/refresh",
+  authLogout: "/auth/logout",
+  authMe: "/auth/me",
+  authStatus: "/auth/status",
+  authAzureAdLoginUrl: "/auth/azure-ad/login-url",
+  authAzureAdLogin: "/auth/azure-ad/login",
+  authUsers: "/auth/users",
+  authUser: (id: number) => `/auth/users/${id}`,
+  authChangePassword: "/auth/change-password",
+  authResetPassword: "/auth/reset-password",
+  authSessions: "/auth/sessions",
+  authSession: (id: number) => `/auth/sessions/${id}`,
+
   // Health
   health: '/health',
 };
