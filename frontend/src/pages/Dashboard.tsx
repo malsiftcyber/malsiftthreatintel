@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import {
   ShieldExclamationIcon,
   GlobeAltIcon,
@@ -7,15 +7,20 @@ import {
   ChartBarIcon,
 } from '@heroicons/react/24/outline';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+
 import { api } from '../services/api';
 import { formatDistanceToNow } from 'date-fns';
+import { FeedComparisonCard } from '../components/dashboard/FeedComparisonCard';
+import { DetailedFeedComparison } from '../components/dashboard/DetailedFeedComparison';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8'];
 
 export default function Dashboard() {
-  const { data: summary, isLoading } = useQuery('dashboard-summary', () =>
-    api.get('/api/v1/indicators/summary/stats')
-  );
+  const { data: summary, isLoading } = useQuery({
+    queryKey: ['dashboard-summary'],
+    queryFn: () => api.get('/api/v1/indicators/summary/stats'),
+    refetchInterval: 300000, // Refresh every 5 minutes
+  });
 
   const stats = [
     {
@@ -95,8 +100,17 @@ export default function Dashboard() {
         ))}
       </div>
 
+      {/* Feed Comparison Section */}
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">Feed Comparison Analysis</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <FeedComparisonCard days={30} />
+          <DetailedFeedComparison days={30} />
+        </div>
+      </div>
+
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Threat Level Distribution */}
         <div className="bg-white shadow rounded-lg p-6">
           <h3 className="text-lg font-medium text-gray-900 mb-4">
