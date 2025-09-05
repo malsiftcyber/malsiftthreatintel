@@ -1,245 +1,281 @@
-# Malsift Documentation
+# Malsift - Cyber Threat Intelligence Platform
 
-Welcome to the comprehensive documentation for Malsift, a powerful cyber threat intelligence aggregation platform.
+Welcome to Malsift, a comprehensive cyber threat intelligence aggregation platform that combines multiple data sources, advanced analytics, and machine learning to provide actionable threat intelligence.
 
-## 🚀 Quick Start
+## 🚀 Key Features
 
-Get up and running with Malsift in minutes:
+### 🔍 **Threat Intelligence Aggregation**
+- **20+ Data Sources**: CISA, AlienVault OTX, VirusTotal, Crowdstrike, Mandiant, Recorded Future, and more
+- **Real-Time Updates**: Continuous monitoring and data collection
+- **Automated Deduplication**: Intelligent merging and confidence scoring
+- **Dark Web Monitoring**: Tor-based scraping of underground sources
 
-1. **Installation**: Follow our [installation guide](installation.md) for detailed setup instructions
-2. **Quick Start**: Use our [quick start guide](quick-start.md) for rapid deployment
-3. **Configuration**: Configure your environment and API keys
-4. **First Login**: Access the platform with default admin credentials
+### 🤖 **Machine Learning & AI**
+- **Threat Scoring**: ML-based risk assessment and prioritization
+- **Anomaly Detection**: Identify unusual patterns and behaviors
+- **Predictive Analytics**: Forecast emerging threats and trends
+- **LLM-Powered Analysis**: AI-driven indicator analysis with ChatGPT/Claude
 
-## 📚 Documentation Sections
+### 🛡️ **EDR Integration**
+- **Multi-Platform Support**: Crowdstrike Falcon, SentinelOne, Microsoft Defender
+- **Intelligent Analysis**: Compare EDR indicators against threat intelligence
+- **LLM Evaluation**: AI analysis of unknown indicators for malicious potential
+- **Automated Response**: Actionable recommendations based on analysis
 
-### Getting Started
-- **[Installation Guide](installation.md)** - Complete setup and deployment instructions
-- **[Quick Start Guide](quick-start.md)** - Get up and running quickly
-- **[Configuration](configuration.md)** - Environment and system configuration
+### 📊 **Feed Comparison Analysis**
+- **Dynamic Comparison**: Real-time percentage comparison between open source and premium feeds
+- **Overlap Analysis**: Identify unique indicators from each feed type
+- **Cost-Benefit Analysis**: Evaluate the value of premium vs. open source intelligence
+- **Trend Analysis**: Track changes in feed coverage over time
 
-### User Guide
-- **[Dashboard Overview](user-guide/dashboard.md)** - Understanding the main dashboard
-- **[Feed Management](user-guide/feeds.md)** - Managing threat intelligence feeds
-- **[Indicator Analysis](user-guide/indicators.md)** - Working with threat indicators
-- **[Feed Comparison Analysis](user-guide/feed-comparison.md)** - Comparing open source vs premium feeds
-- **[Exclusion Management](user-guide/exclusions.md)** - Managing indicator exclusions
-- **[Dark Web Monitoring](user-guide/darkweb.md)** - Dark web intelligence gathering
+### 🔐 **Advanced Authentication**
+- **Multi-Factor Authentication**: TOTP support with Google/Microsoft Authenticator
+- **Azure AD Integration**: Enterprise SSO with OAuth2
+- **JWT Tokens**: Secure session management
+- **Role-Based Access Control**: Granular permissions and user management
 
-### Authentication & Security
-- **[Authentication Overview](auth/overview.md)** - Complete authentication system guide
-- **[Multi-Factor Authentication](auth/mfa.md)** - Setting up MFA
-- **[Azure AD Integration](auth/azure-ad.md)** - Enterprise SSO configuration
-- **[User Management](auth/users.md)** - Managing users and roles
+### 🔒 **Enterprise Security**
+- **SSL/TLS Encryption**: Let's Encrypt and custom certificate support
+- **Security Headers**: Comprehensive security middleware
+- **Rate Limiting**: API protection and abuse prevention
+- **Audit Logging**: Complete activity tracking and compliance
 
-### API Reference
-- **[API Overview](api/overview.md)** - REST API documentation
-- **[Authentication](api/auth.md)** - API authentication methods
-- **[Indicators API](api/indicators.md)** - Threat indicator endpoints
-- **[Feeds API](api/feeds.md)** - Feed management endpoints
-- **[Feed Comparison API](api/feed-comparison.md)** - Feed comparison endpoints
-
-### Advanced Features
-- **[Machine Learning](advanced/ml.md)** - Threat scoring and AI features
-- **[Custom Feed Parsers](advanced/parsers.md)** - Creating custom feed parsers
-- **[Dark Web Scraping](advanced/darkweb.md)** - Advanced dark web monitoring
-- **[Exclusion System](advanced/exclusions.md)** - Advanced exclusion management
-
-### Development
-- **[Architecture Overview](development/architecture.md)** - System architecture
-- **[Development Setup](development/setup.md)** - Setting up development environment
-- **[API Development](development/api.md)** - Extending the API
-- **[Frontend Development](development/frontend.md)** - React frontend development
-
-### Deployment
-- **[Docker Deployment](deployment/docker.md)** - Containerized deployment
-- **[SSL Configuration](deployment/ssl.md)** - SSL certificate setup
-- **[Production Setup](deployment/production.md)** - Production deployment guide
-- **[Monitoring](deployment/monitoring.md)** - System monitoring and alerting
-
-### Troubleshooting
-- **[Common Issues](troubleshooting/common-issues.md)** - Frequently encountered problems
-- **[Performance Tuning](troubleshooting/performance.md)** - Optimizing system performance
-- **[Debugging](troubleshooting/debugging.md)** - Debugging techniques
-- **[Support](troubleshooting/support.md)** - Getting help and support
+### 📈 **Analytics & Monitoring**
+- **Real-Time Dashboard**: Live threat intelligence overview
+- **Interactive Charts**: Comprehensive data visualization
+- **Prometheus Metrics**: Application performance monitoring
+- **Grafana Dashboards**: Customizable monitoring and alerting
 
 ## 🏗️ Architecture
 
 ```mermaid
 graph TB
+    subgraph "Data Sources"
+        A[CISA] --> E[Data Aggregation Layer]
+        B[AlienVault OTX] --> E
+        C[VirusTotal] --> E
+        D[Crowdstrike] --> E
+        F[SentinelOne] --> E
+        G[Microsoft Defender] --> E
+        H[Dark Web Sources] --> E
+    end
+    
+    subgraph "Processing Layer"
+        E --> I[Deduplication Engine]
+        I --> J[ML Threat Scoring]
+        J --> K[Feed Comparison Analysis]
+        K --> L[EDR Integration]
+        L --> M[LLM Analysis]
+    end
+    
+    subgraph "Storage Layer"
+        M --> N[PostgreSQL Database]
+        M --> O[Redis Cache]
+        M --> P[File Storage]
+    end
+    
+    subgraph "API Layer"
+        N --> Q[REST API]
+        O --> Q
+        P --> Q
+    end
+    
     subgraph "Frontend"
-        A[React Dashboard]
-        B[Feed Management]
-        C[Indicator Analysis]
-        D[Feed Comparison]
+        Q --> R[React Dashboard]
+        Q --> S[Authentication UI]
+        Q --> T[Analytics Interface]
     end
     
-    subgraph "Backend API"
-        E[FastAPI]
-        F[Authentication]
-        G[Feed Comparison Service]
-        H[ML Threat Scoring]
+    subgraph "Security Layer"
+        U[SSL/TLS] --> Q
+        V[Rate Limiting] --> Q
+        W[Authentication] --> Q
+        X[Authorization] --> Q
     end
-    
-    subgraph "Data Layer"
-        I[PostgreSQL]
-        J[Redis]
-        K[Custom Parsers]
-    end
-    
-    subgraph "External Sources"
-        L[Open Source Feeds]
-        M[Premium Feeds]
-        N[Dark Web Sources]
-    end
-    
-    A --> E
-    B --> E
-    C --> E
-    D --> E
-    E --> F
-    E --> G
-    E --> H
-    E --> I
-    E --> J
-    E --> K
-    K --> L
-    K --> M
-    K --> N
 ```
 
-## �� Key Features
+## 🚀 Quick Start
 
-### Feed Comparison Analysis
-- **Dynamic Comparison**: Real-time analysis of open source vs premium feeds
-- **Coverage Metrics**: Percentage overlap and unique indicator analysis
-- **Trend Analysis**: Historical comparison data and patterns
-- **Source Breakdown**: Individual source performance evaluation
-- **Type Analysis**: Comparison by indicator type (IP, domain, URL, hash)
+### Prerequisites
+- Docker and Docker Compose
+- Python 3.9+
+- Node.js 18+
+- PostgreSQL 13+
+- Redis 6+
 
-### Comprehensive Threat Intelligence
-- **Multi-Source Aggregation**: Collect from 20+ threat intelligence sources
-- **Intelligent Deduplication**: Advanced deduplication with confidence scoring
-- **Real-time Updates**: Continuous feed monitoring and updates
-- **Custom Parsers**: Support for organization-specific sources
+### Installation
 
-### Advanced Security
-- **Multi-Factor Authentication**: TOTP support with authenticator apps
-- **Azure AD Integration**: Enterprise SSO with automatic user provisioning
-- **SSL/TLS Support**: Let's Encrypt and custom certificate support
-- **Role-Based Access Control**: Granular permissions and user management
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/malsiftcyber/malsiftthreatintel.git
+   cd malsiftthreatintel
+   ```
 
-### Machine Learning & AI
-- **Threat Scoring**: ML-based threat level assessment
-- **Anomaly Detection**: Identify unusual patterns and potential threats
-- **Predictive Analytics**: Forecast threat trends and patterns
-- **Feature Engineering**: Advanced feature extraction from threat data
+2. **Configure environment**
+   ```bash
+   cp backend/.env.example backend/.env
+   # Edit backend/.env with your configuration
+   ```
 
-## 📊 Dashboard Overview
+3. **Start the application**
+   ```bash
+   docker-compose up -d
+   ```
 
-The Malsift dashboard provides comprehensive insights into your threat intelligence:
+4. **Access the application**
+   - Frontend: http://localhost:3000
+   - API Documentation: http://localhost:8000/docs
+   - Grafana Dashboard: http://localhost:3001
 
-### Main Dashboard
-- **Key Metrics**: Total indicators, active sources, threat levels
-- **Feed Comparison**: Open source vs premium feed analysis
-- **Threat Distribution**: Visual breakdown of threat levels
-- **Indicator Types**: Distribution by IP, domain, URL, hash
-- **Recent Activity**: Latest updates and changes
+### Enable SSL (Production)
+```bash
+# Let's Encrypt SSL
+./scripts/ssl-setup.sh --type letsencrypt --domain your-domain.com --email your-email@domain.com
 
-### Feed Comparison Dashboard
-- **Coverage Analysis**: Percentage overlap between feed types
-- **Trend Analysis**: Historical comparison data
-- **Source Performance**: Individual source evaluation
-- **Type Breakdown**: Comparison by indicator type
-- **Insights**: Automated recommendations and insights
+# Custom SSL Certificate
+./scripts/ssl-setup.sh --type custom --domain your-domain.com
+```
+
+### Configure Authentication
+1. **Set up MFA**: Enable TOTP authentication in user settings
+2. **Configure Azure AD**: Add Azure AD configuration for enterprise SSO
+3. **Create API Keys**: Generate API keys for programmatic access
+
+## 📚 Documentation
+
+### Core Features
+- [Installation Guide](installation.md) - Complete setup instructions
+- [Quick Start Guide](quick-start.md) - Get up and running quickly
+- [API Reference](api/overview.md) - Comprehensive API documentation
+- [Authentication](auth/overview.md) - Security and authentication guide
+
+### Advanced Features
+- [EDR Integration](features/edr-integration.md) - Endpoint detection and response integration
+- [Feed Comparison Analysis](features/feed-comparison.md) - Advanced analytics and comparison
+- [Machine Learning](advanced/ml-threat-scoring.md) - AI and ML capabilities
+- [Custom Feed Parsers](advanced/custom-parsers.md) - Extensible parsing system
+
+### Deployment & Operations
+- [SSL Configuration](deployment/ssl.md) - SSL/TLS setup and management
+- [Docker Deployment](deployment/docker.md) - Containerized deployment
+- [Monitoring](deployment/monitoring.md) - Metrics and observability
+- [Troubleshooting](troubleshooting/common-issues.md) - Common problems and solutions
+
+### Development
+- [Development Setup](development/setup.md) - Developer environment setup
+- [Contributing](development/contributing.md) - How to contribute
+- [Testing](development/testing.md) - Testing guidelines and practices
+- [API Development](development/api-development.md) - Building and extending APIs
 
 ## 🔧 Configuration
 
 ### Environment Variables
-Key configuration options in `backend/.env`:
-
-```env
+```bash
 # Database
-DATABASE_URL=postgresql://user:password@localhost/malsift
+DATABASE_URL=postgresql://user:pass@localhost/malsift
+REDIS_URL=redis://localhost:6379
 
-# Security
-SECRET_KEY=your-secret-key-here
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-REFRESH_TOKEN_EXPIRE_DAYS=7
+# Authentication
+SECRET_KEY=your-secret-key
+JWT_ALGORITHM=HS256
+JWT_EXPIRE_MINUTES=30
+
+# LLM Integration
+OPENAI_API_KEY=your-openai-key
+ANTHROPIC_API_KEY=your-anthropic-key
 
 # SSL Configuration
-DOMAIN=your-domain.com
-SSL_TYPE=letsencrypt  # or custom
-
-# Azure AD (optional)
-AZURE_AD_TENANT_ID=your-tenant-id
-AZURE_AD_CLIENT_ID=your-client-id
-AZURE_AD_CLIENT_SECRET=your-client-secret
-AZURE_AD_REDIRECT_URI=https://your-domain.com/auth/azure-ad/callback
-
-# API Keys (optional)
-VIRUSTOTAL_API_KEY=your-vt-api-key
-ALIENVAULT_API_KEY=your-otx-api-key
-THREATFOX_API_KEY=your-threatfox-api-key
+SSL_CERT_PATH=/path/to/cert.pem
+SSL_KEY_PATH=/path/to/key.pem
 ```
 
-## 🚀 Quick Commands
+### Docker Compose Services
+- **Backend**: FastAPI application server
+- **Frontend**: React web application
+- **PostgreSQL**: Primary database
+- **Redis**: Caching and session storage
+- **Celery**: Background task processing
+- **Nginx**: Reverse proxy and SSL termination
+- **Prometheus**: Metrics collection
+- **Grafana**: Monitoring dashboards
 
-### Installation
-```bash
-# Clone repository
-git clone https://github.com/rebaker501/malsift.git
-cd malsift
+## 🛡️ Security Features
 
-# Start services
-docker-compose up -d
+### SSL/TLS Security
+- **Let's Encrypt Integration**: Automatic certificate management
+- **Custom Certificates**: Support for enterprise certificates
+- **HSTS**: HTTP Strict Transport Security
+- **Security Headers**: Comprehensive security middleware
 
-# Initialize database
-docker-compose exec backend alembic upgrade head
+### Authentication & Authorization
+- **Multi-Factor Authentication**: TOTP with QR code generation
+- **Azure AD Integration**: Enterprise single sign-on
+- **JWT Tokens**: Secure session management
+- **Role-Based Access**: Granular permission system
 
-# Create admin user
-docker-compose exec backend python -m app.scripts.create_admin
-```
+### API Security
+- **Rate Limiting**: Configurable request limits
+- **CORS Protection**: Cross-origin request security
+- **Input Validation**: Comprehensive data validation
+- **Audit Logging**: Complete activity tracking
 
-### SSL Setup
-```bash
-# Let's Encrypt
-./scripts/ssl-setup.sh -d your-domain.com -e your-email@domain.com
+## 📊 Monitoring & Analytics
 
-# Custom SSL
-./scripts/ssl-setup.sh -d your-domain.com -t custom
-```
+### Real-Time Metrics
+- **Threat Indicators**: Live count and trends
+- **Feed Performance**: Source reliability and latency
+- **API Usage**: Request rates and response times
+- **System Health**: Resource utilization and performance
 
-### API Usage
-```bash
-# Login
-curl -X POST http://localhost:8000/api/v1/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username": "admin", "password": "admin123"}'
-
-# Get feed comparison
-curl -H "Authorization: Bearer YOUR_TOKEN" \
-  http://localhost:8000/api/v1/feed-comparison/overview?days=30
-```
+### Grafana Dashboards
+- **Threat Intelligence Overview**: Comprehensive threat landscape
+- **System Performance**: Infrastructure monitoring
+- **User Activity**: Authentication and usage patterns
+- **Cost Analysis**: LLM usage and associated costs
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](../CONTRIBUTING.md) for details.
+We welcome contributions from the community! Please see our [Contributing Guide](development/contributing.md) for details on how to get started.
 
 ### Development Setup
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests and documentation
+4. Add tests
 5. Submit a pull request
 
-## 📞 Support
-
-- **Documentation**: This comprehensive documentation site
-- **Issues**: Report bugs and feature requests on [GitHub](https://github.com/rebaker501/malsift/issues)
-- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/rebaker501/malsift/discussions)
-- **Email**: Contact us at support@malsift.com
+### Code Standards
+- **Python**: PEP 8 compliance with Black formatting
+- **TypeScript**: ESLint configuration with strict typing
+- **Documentation**: Comprehensive docstrings and comments
+- **Testing**: Unit and integration test coverage
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Documentation**: Comprehensive guides and API reference
+- **Issues**: GitHub Issues for bug reports and feature requests
+- **Discussions**: GitHub Discussions for questions and community support
+- **Security**: Report security vulnerabilities to security@malsiftcyber.com
+
+## 🎯 Roadmap
+
+### Upcoming Features
+- **Additional EDR Platforms**: Support for more endpoint detection tools
+- **Advanced ML Models**: Enhanced threat scoring and prediction
+- **Mobile Applications**: iOS and Android apps for monitoring
+- **Integration APIs**: Third-party platform integrations
+- **Cloud Deployment**: AWS, Azure, and GCP deployment options
+
+### Community Goals
+- **Open Source Ecosystem**: Build a thriving community of contributors
+- **Industry Partnerships**: Collaborate with security vendors and researchers
+- **Educational Resources**: Training materials and certification programs
+- **Research Collaboration**: Academic partnerships and threat research
+
+---
+
+**Malsift** - Empowering organizations with intelligent threat intelligence and advanced security analytics.

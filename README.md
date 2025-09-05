@@ -1,317 +1,215 @@
-# Malsift - Cyber Threat Intelligence Aggregation Platform
+# Malsift - Cyber Threat Intelligence Platform
 
-## 🎨 Branding
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![React 18](https://img.shields.io/badge/react-18-blue.svg)](https://reactjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com/)
+[![Docker](https://img.shields.io/badge/docker-supported-blue.svg)](https://www.docker.com/)
 
-### Logo
-The Malsift logo features a distinctive design that represents the platform's mission:
+A comprehensive cyber threat intelligence aggregation platform that combines multiple data sources, advanced analytics, machine learning, and EDR integration to provide actionable threat intelligence.
 
-- **Hooded Figure**: Represents the mysterious and hidden nature of cyber threats
-- **Glowing Red Eyes**: Symbolizes constant vigilance and threat detection
-- **Network Structure**: The molecular/network symbol on the figure's chest represents the interconnected nature of threat intelligence and data analysis
-- **Dark Theme**: Reflects the cybersecurity domain and the need for stealth in threat hunting
+## 🚀 Key Features
 
-Multiple logo variants are available:
-- `logo.svg` - Full logo with text (200x80px)
-- `logo-text.svg` - Text-only version for smaller spaces (120x40px)
-- `favicon.svg` - Favicon version (32x32px)
+### 🔍 **Threat Intelligence Aggregation**
+- **20+ Data Sources**: CISA, AlienVault OTX, VirusTotal, Crowdstrike, Mandiant, Recorded Future, Nordstellar, Anomali, FBI InfraGuard, and more
+- **Real-Time Updates**: Continuous monitoring and data collection
+- **Automated Deduplication**: Intelligent merging and confidence scoring
+- **Dark Web Monitoring**: Tor-based scraping of underground sources
 
-## 🚀 Features
+### 🤖 **Machine Learning & AI**
+- **Threat Scoring**: ML-based risk assessment and prioritization
+- **Anomaly Detection**: Identify unusual patterns and behaviors
+- **Predictive Analytics**: Forecast emerging threats and trends
+- **LLM-Powered Analysis**: AI-driven indicator analysis with ChatGPT/Claude
 
-### Multi-Source Intelligence Aggregation
-- **Government Sources**: CISA Known Exploited Vulnerabilities, FBI Cyber Division feeds, DHS Automated Indicator Sharing
-- **Open Source Sources**: AlienVault OTX, MISP, OpenPhish, PhishTank, URLhaus (Abuse.ch)
-- **Commercial Sources**: VirusTotal, ThreatFox, IBM X-Force Exchange, Recorded Future, CrowdStrike Falcon (free tiers)
-- **Custom Feed Support**: Add any threat intelligence source with custom parsers
+### ��️ **EDR Integration**
+- **Multi-Platform Support**: Crowdstrike Falcon, SentinelOne, Microsoft Defender for Endpoint
+- **Intelligent Analysis**: Compare EDR indicators against known threat intelligence
+- **LLM Evaluation**: AI analysis of unknown indicators for malicious potential
+- **Automated Response**: Actionable recommendations based on analysis
 
-### 🔒 SSL Certificate Support
-- **Let's Encrypt Integration**: Free, automatic SSL certificate generation and renewal
-- **Custom SSL Certificates**: Support for certificates from any Certificate Authority
-- **Nginx Reverse Proxy**: SSL termination with security headers and rate limiting
-- **Automatic Renewal**: Cron jobs for certificate renewal (90-day expiration)
-- **Security Headers**: HSTS, CSP, X-Frame-Options, and other security enhancements
-- **HTTP/2 Support**: Modern protocol for improved performance
+### 📊 **Feed Comparison Analysis**
+- **Dynamic Comparison**: Real-time percentage comparison between open source and premium feeds
+- **Overlap Analysis**: Identify unique indicators from each feed type
+- **Cost-Benefit Analysis**: Evaluate the value of premium vs. open source intelligence
+- **Trend Analysis**: Track changes in feed coverage over time
 
-### 🔐 Comprehensive Authentication System
-- **Internal Login System**: Username/password authentication with bcrypt hashing
-- **Azure AD Integration**: Enterprise SSO with OAuth2 and automatic user provisioning
+### 🔐 **Advanced Authentication**
 - **Multi-Factor Authentication**: TOTP support with Google/Microsoft Authenticator
-- **JWT Tokens**: Secure session management with access and refresh tokens
+- **Azure AD Integration**: Enterprise SSO with OAuth2
+- **JWT Tokens**: Secure session management
 - **Role-Based Access Control**: Granular permissions and user management
-- **Session Management**: Secure session handling with automatic logout
-- **Password Management**: Secure password reset and change functionality
 
-### Advanced Deduplication System
-- **Intelligent Normalization**: IP addresses, domains, URLs, hashes, emails
-- **Confidence Score Merging**: Automatically merges duplicate indicators with highest confidence
-- **Tag Consolidation**: Combines tags and metadata from multiple sources
-- **Duplicate Tracking**: Comprehensive reporting on duplicate detection and resolution
+### 🔒 **Enterprise Security**
+- **SSL/TLS Encryption**: Let's Encrypt and custom certificate support
+- **Security Headers**: Comprehensive security middleware
+- **Rate Limiting**: API protection and abuse prevention
+- **Audit Logging**: Complete activity tracking and compliance
 
-### Dark Web Monitoring
-- **Tor Integration**: Built-in Tor proxy support for dark web access
-- **Configurable Scraping**: Set custom intervals and source management
-- **Content Extraction**: Advanced parsing and indicator extraction from dark web content
-- **Source Management**: Add, configure, and monitor dark web sources
+## 🏗️ Architecture
 
-### Machine Learning & AI
-- **Threat Scoring**: ML-based threat level assessment and prioritization
-- **Anomaly Detection**: Identify unusual patterns and potential threats
-- **Feature Engineering**: Advanced feature extraction from threat data
-- **Model Management**: Train, update, and monitor ML models
-
-### Modern Web Interface
-- **React + TypeScript**: Modern, responsive frontend with Tailwind CSS
-- **Real-time Dashboard**: Live statistics and threat level distributions
-- **Advanced Filtering**: Search, filter, and sort indicators by multiple criteria
-- **Feed Management**: Visual interface for managing threat intelligence sources
-
-### Indicator Exclusion System
-- **Flexible Pattern Matching**: Exact, regex, and wildcard pattern support
-- **Bulk Import**: Import exclusion lists from CSV/JSON files
-- **Pattern Testing**: Test exclusion patterns before applying
-- **Audit Trail**: Track all exclusion changes and modifications
-
-### Custom Feed Parsers
-- **Dynamic Parser Loading**: Load custom Python parsers at runtime
-- **Multiple Format Support**: JSON, CSV, XML, and custom formats
-- **Parser Management**: Upload, configure, and manage custom parsers
-- **Error Handling**: Robust error handling and validation
-
-## 🛠️ Technology Stack
-
-### Backend
-- **FastAPI**: Modern Python web framework for APIs
-- **PostgreSQL**: Primary database with advanced querying
-- **Redis**: Caching and message queue for Celery
-- **SQLAlchemy**: ORM for database operations
-- **Alembic**: Database migrations
-- **Celery**: Background task processing
-- **Prometheus**: Metrics collection and monitoring
-
-### Frontend
-- **React 18**: Modern UI framework with hooks
-- **TypeScript**: Type-safe JavaScript development
-- **Tailwind CSS**: Utility-first CSS framework
-- **React Query**: Data fetching and caching
-- **React Router**: Client-side routing
-- **Recharts**: Data visualization and charts
-
-### Security & SSL
-- **Nginx**: Reverse proxy with SSL termination
-- **Let's Encrypt**: Free SSL certificate automation
-- **Certbot**: Certificate management and renewal
-- **Security Headers**: Comprehensive security hardening
-- **Rate Limiting**: Protection against abuse
-
-### Authentication
-- **JWT**: JSON Web Tokens for secure authentication
-- **bcrypt**: Secure password hashing
-- **pyotp**: TOTP-based multi-factor authentication
-- **Azure AD**: Enterprise SSO integration
-- **Session Management**: Secure session tracking
-
-### Monitoring & Observability
-- **Grafana**: Metrics visualization and dashboards
-- **Prometheus**: Time-series metrics database
-- **Loguru**: Structured logging
-- **Health Checks**: Application health monitoring
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Data Sources  │    │  Processing     │    │   Storage       │
+│                 │    │                 │    │                 │
+│ • CISA          │───▶│ • Deduplication │───▶│ • PostgreSQL    │
+│ • AlienVault    │    │ • ML Scoring    │    │ • Redis Cache   │
+│ • VirusTotal    │    │ • Feed Compare  │    │ • File Storage  │
+│ • Crowdstrike   │    │ • EDR Analysis  │    │                 │
+│ • SentinelOne   │    │ • LLM Analysis  │    │                 │
+│ • Defender      │    │                 │    │                 │
+│ • Dark Web      │    │                 │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   API Layer     │    │   Frontend      │    │   Security      │
+│                 │    │                 │    │                 │
+│ • REST API      │◀───│ • React UI      │    │ • SSL/TLS       │
+│ • WebSocket     │    │ • Dashboard     │    │ • Rate Limiting │
+│ • GraphQL       │    │ • Analytics     │    │ • Authentication│
+│ • Webhooks      │    │ • Management    │    │ • Authorization  │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Docker and Docker Compose
-- Domain name (for SSL setup)
-- At least 4GB RAM
+- Python 3.9+
+- Node.js 18+
+- PostgreSQL 13+
+- Redis 6+
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/rebaker501/malsift.git
-   cd malsift
+   git clone https://github.com/malsiftcyber/malsiftthreatintel.git
+   cd malsiftthreatintel
    ```
 
 2. **Configure environment**
    ```bash
    cp backend/.env.example backend/.env
-   # Edit backend/.env with your settings
+   # Edit backend/.env with your configuration
    ```
 
-3. **Start services**
+3. **Start the application**
    ```bash
-   # Standard deployment
    docker-compose up -d
-   
-   # SSL-enabled deployment
-   ./scripts/ssl-setup.sh -d your-domain.com -e your-email@domain.com
    ```
 
-4. **Initialize database**
-   ```bash
-   docker-compose exec backend alembic upgrade head
-   docker-compose exec backend python -m app.scripts.create_admin
-   ```
+4. **Access the application**
+   - Frontend: http://localhost:3000
+   - API Documentation: http://localhost:8000/docs
+   - Grafana Dashboard: http://localhost:3001
 
-5. **Access the application**
-   - **Standard**: http://localhost:3000
-   - **SSL**: https://your-domain.com
+### Enable SSL (Production)
+```bash
+# Let's Encrypt SSL
+./scripts/ssl-setup.sh --type letsencrypt --domain your-domain.com --email your-email@domain.com
 
-## 🔐 Authentication Setup
+# Custom SSL Certificate
+./scripts/ssl-setup.sh --type custom --domain your-domain.com
+```
 
-### Default Admin Account
-After installation, use these default credentials:
-- **Username**: `admin`
-- **Password**: `admin123`
-
-**Important**: Change these credentials immediately after first login!
-
-### Internal Authentication
-The system includes a complete internal authentication system:
-- User registration and management
-- Password hashing with bcrypt
-- JWT token-based sessions
-- Role-based access control
-
-### Azure AD Integration (Optional)
-1. **Create Azure AD App Registration**:
-   - Go to Azure Portal > App Registrations
-   - Create new registration
-   - Set redirect URI: `https://your-domain.com/auth/azure-ad/callback`
-
-2. **Configure Environment Variables**:
-   ```env
-   AZURE_AD_TENANT_ID=your-tenant-id
-   AZURE_AD_CLIENT_ID=your-client-id
-   AZURE_AD_CLIENT_SECRET=your-client-secret
-   AZURE_AD_REDIRECT_URI=https://your-domain.com/auth/azure-ad/callback
-   ```
-
-3. **Enable in Web Interface**:
-   - Go to Authentication settings
-   - Enable Azure AD integration
-   - Configure allowed domains
-
-### Multi-Factor Authentication (Optional)
-1. **Enable MFA for Your Account**:
-   - Go to your profile settings
-   - Enable Multi-Factor Authentication
-   - Scan QR code with Google/Microsoft Authenticator
-
-2. **Complete Setup**:
-   - Enter verification code from authenticator
-   - Save backup codes for recovery
-
-## 📚 Documentation
-
-- **[Installation Guide](docs/installation.md)**: Complete setup instructions
-- **[Quick Start Guide](docs/quick-start.md)**: Get up and running quickly
-- **[API Documentation](docs/api/overview.md)**: Comprehensive API reference
-- **[SSL Setup Guide](docs/deployment/ssl.md)**: SSL certificate configuration
-- **[Authentication Guide](docs/auth/overview.md)**: Login and MFA setup
+### Configure Authentication
+1. **Set up MFA**: Enable TOTP authentication in user settings
+2. **Configure Azure AD**: Add Azure AD configuration for enterprise SSO
+3. **Create API Keys**: Generate API keys for programmatic access
 
 ## 🔧 Configuration
 
 ### Environment Variables
-
-Key configuration options in `backend/.env`:
-
-```env
+```bash
 # Database
-DATABASE_URL=postgresql://user:password@localhost/malsift
+DATABASE_URL=postgresql://user:pass@localhost/malsift
+REDIS_URL=redis://localhost:6379
 
-# Security
-SECRET_KEY=your-secret-key-here
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-REFRESH_TOKEN_EXPIRE_DAYS=7
+# Authentication
+SECRET_KEY=your-secret-key
+JWT_ALGORITHM=HS256
+JWT_EXPIRE_MINUTES=30
+
+# LLM Integration
+OPENAI_API_KEY=your-openai-key
+ANTHROPIC_API_KEY=your-anthropic-key
 
 # SSL Configuration
-DOMAIN=your-domain.com
-SSL_TYPE=letsencrypt  # or custom
-
-# Azure AD (optional)
-AZURE_AD_TENANT_ID=your-tenant-id
-AZURE_AD_CLIENT_ID=your-client-id
-AZURE_AD_CLIENT_SECRET=your-client-secret
-AZURE_AD_REDIRECT_URI=https://your-domain.com/auth/azure-ad/callback
-
-# API Keys (optional)
-VIRUSTOTAL_API_KEY=your-vt-api-key
-ALIENVAULT_API_KEY=your-otx-api-key
-THREATFOX_API_KEY=your-threatfox-api-key
+SSL_CERT_PATH=/path/to/cert.pem
+SSL_KEY_PATH=/path/to/key.pem
 ```
 
-### SSL Configuration
+### Docker Compose Services
+- **Backend**: FastAPI application server
+- **Frontend**: React web application
+- **PostgreSQL**: Primary database
+- **Redis**: Caching and session storage
+- **Celery**: Background task processing
+- **Nginx**: Reverse proxy and SSL termination
+- **Prometheus**: Metrics collection
+- **Grafana**: Monitoring dashboards
 
-#### Let's Encrypt (Recommended)
-```bash
-./scripts/ssl-setup.sh -d your-domain.com -e your-email@domain.com
-```
+## 🛡️ Security Features
 
-#### Custom SSL Certificate
-```bash
-# Place certificates
-cp your-cert.crt nginx/ssl/cert.pem
-cp your-key.key nginx/ssl/key.pem
+### SSL/TLS Security
+- **Let's Encrypt Integration**: Automatic certificate management
+- **Custom Certificates**: Support for enterprise certificates
+- **HSTS**: HTTP Strict Transport Security
+- **Security Headers**: Comprehensive security middleware
 
-# Run setup
-./scripts/ssl-setup.sh -d your-domain.com -t custom
-```
+### Authentication & Authorization
+- **Multi-Factor Authentication**: TOTP with QR code generation
+- **Azure AD Integration**: Enterprise single sign-on
+- **JWT Tokens**: Secure session management
+- **Role-Based Access**: Granular permission system
 
-## 📊 API Authentication
+### API Security
+- **Rate Limiting**: Configurable request limits
+- **CORS Protection**: Cross-origin request security
+- **Input Validation**: Comprehensive data validation
+- **Audit Logging**: Complete activity tracking
 
-### JWT Token Authentication
-All API endpoints require authentication using JWT tokens:
+## 📊 Monitoring & Analytics
 
-```bash
-# Login to get tokens
-curl -X POST http://localhost:8000/api/v1/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username": "admin", "password": "admin123"}'
+### Real-Time Metrics
+- **Threat Indicators**: Live count and trends
+- **Feed Performance**: Source reliability and latency
+- **API Usage**: Request rates and response times
+- **System Health**: Resource utilization and performance
 
-# Use access token in requests
-curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-  http://localhost:8000/api/v1/indicators
-```
+### Grafana Dashboards
+- **Threat Intelligence Overview**: Comprehensive threat landscape
+- **System Performance**: Infrastructure monitoring
+- **User Activity**: Authentication and usage patterns
+- **Cost Analysis**: LLM usage and associated costs
 
-### Authentication Endpoints
+## 📚 Documentation
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/v1/auth/login` | Internal login |
-| POST | `/api/v1/auth/refresh` | Refresh access token |
-| POST | `/api/v1/auth/logout` | Logout and invalidate token |
-| POST | `/api/v1/auth/register` | Register new user |
-| GET | `/api/v1/auth/me` | Get current user info |
-| POST | `/api/v1/auth/mfa/setup` | Setup MFA |
-| POST | `/api/v1/auth/mfa/verify` | Verify MFA code |
-| POST | `/api/v1/auth/azure-ad/login` | Azure AD login |
-| GET | `/api/v1/auth/azure-ad/login-url` | Get Azure AD login URL |
-
-## 📈 Monitoring
-
-### Health Checks
-```bash
-# API health
-curl http://localhost:8000/health
-
-# SSL certificate status
-./scripts/renew-ssl.sh --dry-run
-```
-
-### Metrics & Dashboards
-- **Grafana**: http://localhost:3001 (admin/admin)
-- **Prometheus**: http://localhost:9090
-- **Application Metrics**: Available via Prometheus endpoints
+- **[Installation Guide](docs/installation.md)** - Complete setup instructions
+- **[Quick Start Guide](docs/quick-start.md)** - Get up and running quickly
+- **[API Reference](docs/api/overview.md)** - Comprehensive API documentation
+- **[EDR Integration](docs/features/edr-integration.md)** - Endpoint detection and response integration
+- **[Authentication](docs/auth/overview.md)** - Security and authentication guide
+- **[SSL Configuration](docs/deployment/ssl.md)** - SSL/TLS setup and management
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions from the community! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to get started.
 
 ### Development Setup
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests and documentation
+4. Add tests
 5. Submit a pull request
+
+### Code Standards
+- **Python**: PEP 8 compliance with Black formatting
+- **TypeScript**: ESLint configuration with strict typing
+- **Documentation**: Comprehensive docstrings and comments
+- **Testing**: Unit and integration test coverage
 
 ## 📄 License
 
@@ -319,10 +217,30 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Documentation**: [Comprehensive docs](https://rebaker501.github.io/malsift/)
-- **Issues**: Report bugs and feature requests on [GitHub](https://github.com/rebaker501/malsift/issues)
-- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/rebaker501/malsift/discussions)
+- **Documentation**: Comprehensive guides and API reference
+- **Issues**: GitHub Issues for bug reports and feature requests
+- **Discussions**: GitHub Discussions for questions and community support
+- **Security**: Report security vulnerabilities to security@malsiftcyber.com
 
-## 🔄 Changelog
+## 🎯 Roadmap
 
-See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes and updates.
+### Upcoming Features
+- **Additional EDR Platforms**: Support for more endpoint detection tools
+- **Advanced ML Models**: Enhanced threat scoring and prediction
+- **Mobile Applications**: iOS and Android apps for monitoring
+- **Integration APIs**: Third-party platform integrations
+- **Cloud Deployment**: AWS, Azure, and GCP deployment options
+
+### Community Goals
+- **Open Source Ecosystem**: Build a thriving community of contributors
+- **Industry Partnerships**: Collaborate with security vendors and researchers
+- **Educational Resources**: Training materials and certification programs
+- **Research Collaboration**: Academic partnerships and threat research
+
+---
+
+**Malsift** - Empowering organizations with intelligent threat intelligence and advanced security analytics.
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=malsiftcyber/malsiftthreatintel&type=Date)](https://star-history.com/#malsiftcyber/malsiftthreatintel&Date)

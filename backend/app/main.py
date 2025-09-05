@@ -13,6 +13,12 @@ from app.services.metrics import setup_metrics
 # Import authentication models to ensure they're created
 from app.models.auth import User, Role, UserSession, MFAAttempt, AzureADConfig
 
+# Import EDR models to ensure they're created
+from app.models.edr.edr_models import (
+    EDRConnection, EDRExtraction, EDRIndicator, EDRAnalysis,
+    LLMConfiguration, ThreatIntelligenceMatch
+)
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan events"""

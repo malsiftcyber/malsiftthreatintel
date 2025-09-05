@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import indicators, sources, campaigns, feeds, jobs, darkweb, exclusions, auth, feed_comparison
+from app.api.v1.endpoints import indicators, sources, campaigns, feeds, jobs, darkweb, exclusions, auth, feed_comparison, edr
 
 api_router = APIRouter()
 
@@ -13,3 +13,4 @@ api_router.include_router(jobs.router, prefix="/jobs", tags=["jobs"])
 api_router.include_router(darkweb.router, prefix="/darkweb", tags=["darkweb"])
 api_router.include_router(exclusions.router, prefix="/exclusions", tags=["exclusions"])
 api_router.include_router(feed_comparison.router, prefix="/feed-comparison", tags=["feed-comparison"])
+api_router.include_router(edr.router, prefix="/edr", tags=["edr-integration"])
