@@ -2,198 +2,196 @@
 
 Thank you for your interest in contributing to Malsift! This document provides guidelines and information for contributors.
 
-## 🚀 Getting Started
+## Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+
+## Getting Started
 
 ### Prerequisites
-
-- Python 3.11+
-- Node.js 18+
 - Docker and Docker Compose
+- Python 3.9+
+- Node.js 18+
 - Git
 
 ### Development Setup
 
 1. **Fork and Clone**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/malsift.git
-   cd malsift
+   git clone https://github.com/your-username/malsiftthreatintel.git
+   cd malsiftthreatintel
    ```
 
-2. **Set up Development Environment**
+2. **Start Development Environment**
    ```bash
-   # Backend setup
+   docker-compose up -d
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   # Backend
    cd backend
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    
-   # Frontend setup
-   cd ../frontend
+   # Frontend
+   cd frontend
    npm install
    ```
 
-3. **Configure Environment**
-   ```bash
-   cp backend/env.example backend/.env
-   # Edit backend/.env with your configuration
-   ```
+## Development Workflow
 
-4. **Start Development Services**
-   ```bash
-   # Start database and Redis
-   docker-compose up postgres redis -d
-   
-   # Start backend
-   cd backend
-   uvicorn app.main:app --reload
-   
-   # Start frontend (in another terminal)
-   cd frontend
-   npm start
-   ```
+### Branch Naming
+- `feature/description` - New features
+- `bugfix/description` - Bug fixes
+- `hotfix/description` - Critical fixes
+- `docs/description` - Documentation updates
 
-## 📝 Development Guidelines
+### Commit Messages
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
-### Code Style
+```
+type(scope): description
 
-**Python (Backend)**
-- Follow PEP 8 style guidelines
-- Use type hints for all functions
-- Write docstrings for all public functions
-- Maximum line length: 88 characters (Black formatter)
+[optional body]
 
-**TypeScript/React (Frontend)**
-- Use TypeScript strict mode
-- Follow ESLint configuration
-- Use functional components with hooks
-- Prefer named exports over default exports
-
-### Testing
-
-**Backend Tests**
-```bash
-cd backend
-pytest tests/
+[optional footer(s)]
 ```
 
-**Frontend Tests**
-```bash
-cd frontend
-npm test
-```
+Examples:
+- `feat(auth): add MFA support`
+- `fix(api): resolve authentication token issue`
+- `docs(readme): update installation instructions`
 
-### Database Migrations
+### Pull Request Process
 
-When modifying database models:
-
-```bash
-cd backend
-alembic revision --autogenerate -m "Description of changes"
-alembic upgrade head
-```
-
-## 🐛 Bug Reports
-
-Before reporting a bug:
-
-1. Check existing issues for duplicates
-2. Try to reproduce the issue
-3. Include:
-   - OS and version
-   - Malsift version
-   - Steps to reproduce
-   - Expected vs actual behavior
-   - Error logs (if applicable)
-
-## 💡 Feature Requests
-
-When requesting features:
-
-1. Describe the problem you're solving
-2. Explain why this feature is needed
-3. Provide use cases and examples
-4. Consider implementation complexity
-
-## 🔧 Pull Request Process
-
-1. **Create a Feature Branch**
+1. **Create Feature Branch**
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-2. **Make Your Changes**
-   - Write clear, descriptive commit messages
-   - Include tests for new functionality
+2. **Make Changes**
+   - Write clean, documented code
+   - Add tests for new functionality
    - Update documentation as needed
 
 3. **Test Your Changes**
    ```bash
    # Backend tests
-   cd backend && pytest
+   cd backend
+   pytest
    
    # Frontend tests
-   cd frontend && npm test
-   
-   # Integration tests
-   docker-compose up --build
+   cd frontend
+   npm test
    ```
 
 4. **Submit Pull Request**
-   - Use the PR template
-   - Describe changes clearly
-   - Link related issues
-   - Request reviews from maintainers
+   - Use the provided PR template
+   - Reference any related issues
+   - Ensure all checks pass
 
-## 📚 Documentation
+## Code Standards
 
-When adding new features:
+### Python (Backend)
+- Follow PEP 8 style guidelines
+- Use type hints
+- Write docstrings for functions and classes
+- Maximum line length: 88 characters (Black formatter)
 
-1. **Update API Documentation**
-   - Add OpenAPI docstrings to endpoints
-   - Update `docs/API.md` if needed
+### TypeScript/React (Frontend)
+- Use TypeScript for all new code
+- Follow ESLint configuration
+- Use functional components with hooks
+- Write tests with Jest and React Testing Library
 
-2. **Update README**
-   - Add new features to feature list
-   - Update installation instructions if needed
+### Documentation
+- Update README.md for significant changes
+- Add/update API documentation
+- Include code examples where helpful
 
-3. **Add Code Comments**
-   - Explain complex logic
-   - Document configuration options
+## Testing
 
-## 🔒 Security
+### Backend Testing
+```bash
+cd backend
+pytest --cov=app --cov-report=html
+```
 
-- Never commit API keys or secrets
-- Use environment variables for sensitive data
-- Follow security best practices
-- Report security issues privately
+### Frontend Testing
+```bash
+cd frontend
+npm test -- --coverage
+```
 
-## 🏷️ Release Process
+### Integration Testing
+```bash
+docker-compose -f docker-compose.test.yml up --abort-on-container-exit
+```
 
-1. **Version Bumping**
-   - Update version in `backend/app/core/config.py`
-   - Update version in `frontend/package.json`
-   - Create git tag
+## Security
 
-2. **Changelog**
-   - Update `CHANGELOG.md` with new features and fixes
-   - Include breaking changes if any
+### Reporting Vulnerabilities
+**Do not report security vulnerabilities through public GitHub issues.**
 
-3. **Release**
-   - Create GitHub release
-   - Update Docker images
-   - Announce on appropriate channels
+Instead, email: security@malsiftcyber.com
 
-## 🤝 Community
+### Security Guidelines
+- Never commit secrets or API keys
+- Use environment variables for configuration
+- Follow OWASP security guidelines
+- Validate all user inputs
 
-- Be respectful and inclusive
-- Help other contributors
-- Share knowledge and best practices
-- Participate in discussions
+## Documentation
 
-## 📞 Getting Help
+### API Documentation
+- Update OpenAPI/Swagger specifications
+- Include request/response examples
+- Document authentication requirements
 
-- **Issues**: [GitHub Issues](https://github.com/rebaker501/malsift/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rebaker501/malsift/discussions)
-- **Documentation**: [API Docs](http://localhost:8000/docs)
+### User Documentation
+- Update user guides in `docs/`
+- Include screenshots for UI changes
+- Provide clear installation instructions
+
+## Release Process
+
+### Versioning
+We follow [Semantic Versioning](https://semver.org/):
+- `MAJOR.MINOR.PATCH`
+- `1.0.0` - Initial release
+- `1.1.0` - New features
+- `1.1.1` - Bug fixes
+
+### Creating Releases
+1. Update version numbers
+2. Update CHANGELOG.md
+3. Create and push tag: `git tag v1.1.0`
+4. Push tag: `git push origin v1.1.0`
+5. GitHub Actions will create the release
+
+## Community
+
+### Getting Help
+- Check existing [Issues](https://github.com/malsiftcyber/malsiftthreatintel/issues)
+- Join [Discussions](https://github.com/malsiftcyber/malsiftthreatintel/discussions)
+- Email: support@malsiftcyber.com
+
+### Recognition
+Contributors will be recognized in:
+- README.md contributors section
+- Release notes
+- Project documentation
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the MIT License.
+
+## Questions?
+
+If you have questions about contributing, please:
+1. Check existing documentation
+2. Search existing issues
+3. Create a new issue with the `question` label
+4. Email: contributors@malsiftcyber.com
 
 Thank you for contributing to Malsift! 🚀
